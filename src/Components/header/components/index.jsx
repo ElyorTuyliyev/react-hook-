@@ -1,5 +1,5 @@
 const Links = ({ name }) => {
-  <li className="header__links">{name}</li>;
+  return <li className="header__links">{name}</li>;
 };
 
 export default Links;

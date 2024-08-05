@@ -1,11 +1,10 @@
-import { useCallback, useEffect, useRef, useState } from "react";
+import { useCallback, useRef, useState } from "react";
 import Container from "../../Container";
 import Links from "./components";
 import HeaderStyle from "./header.style";
 
 const Header = () => {
-  const [count, setCount] = useState(0);
-  const [name, setName] = useState("Xondamir");
+  const [name, setName] = useState();
   const rendersCount = useRef(null);
 
   const handleChangeName = useCallback(() => {
@@ -15,8 +14,14 @@ const Header = () => {
   const link = [
     {
       name: "HOME",
+    },
+    {
       name: "CONTACT",
+    },
+    {
       name: "ABOUT",
+    },
+    {
       name: "FOOTER",
     },
   ];
@@ -30,11 +35,11 @@ const Header = () => {
         <h1 onClick={handleChangeName} style={{ color: "white" }}>
           {name}
         </h1>
-        <p ref={rendersCount}>1</p>
+        <p ref={rendersCount}></p>
         <HeaderStyle>
           <ul className="header__link-wrapper">
             {link.map((item) => (
-              <Links {...item} count={handleChangeName} />
+              <Links {...item} />
             ))}
           </ul>
         </HeaderStyle>
